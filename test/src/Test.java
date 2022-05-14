@@ -1,12 +1,19 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Test {
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("A");
-        list.add("B");
-        list.add("C");
-        System.out.println(list.contains(new String("A")));
+        System.out.println("main start...");
+        Thread t = new Thread() {
+            public void run() {
+                System.out.println("thread run...");
+                try {
+                    Thread.sleep(20);
+                } catch (InterruptedException e) {}
+                System.out.println("thread end.");
+            }
+        };
+        t.start();
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {}
+        System.out.println("main end...");
     }
 }

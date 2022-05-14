@@ -1,28 +1,38 @@
-package 集合;
+package collection;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class 遍历ArrayList {
-    public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
+    private List<String> list = new ArrayList<>();
+    {
         list.add("hello");
         list.add("world");
         list.add("hahaha");
+    }
 
-        //方式一：普通for循环
+    @Test
+    //方式1：普通for循环
+    public void test1(){
         for (int i = 0; i < list.size(); i++) {
-            String item = list.get(i);
-            System.out.println(item);
+            System.out.println(list.get(i));
         }
-        System.out.println("=============================");
-        //方式二：增强for循环，底层也是采用迭代器
+    }
+
+    @Test
+    //方式2：增强for循环，底层也是采用迭代器
+    public void test2(){
         for (String item : list) {
             System.out.println(item);
         }
-        System.out.println("=============================");
-        //方式三：迭代器遍历
+    }
+
+    @Test
+    //方式3：迭代器遍历
+    public void test3(){
         Iterator<String> iterator = list.iterator();
         while (iterator.hasNext()){
             String item = iterator.next();
