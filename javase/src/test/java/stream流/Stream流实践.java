@@ -74,6 +74,15 @@ public class Stream流实践 {
     }
 
     @Test
+    //List<Obj>转List<key,Obj>
+    public void test14(){
+        Map<String, Person> map = persons.stream().collect(Collectors.toMap(Person::getName, a -> a, (v, u) -> v));
+        for (String key : map.keySet()) {
+            System.out.println("key：" + key + ",value：" + map.get(key));
+        }
+    }
+
+    @Test
     //规约
     //reduce:将stream流归并为一个值，可以进行求和/最大值/最小值等操作
     public void test5(){
