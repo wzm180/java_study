@@ -13,6 +13,9 @@ public class 重写equals和hashcode方法 {
 
         @Override
         public boolean equals(Object o) {
+            if (this == o){  //同一个对象直接返回ture
+                return true;
+            }
             if (o instanceof Person) {
                 Person p = (Person) o;
                 return Objects.equals(this.name, p.name) && this.age == p.age;
